@@ -55,9 +55,10 @@ Test this function by hand in the console to get it working, and when you think 
 // sumAndMultiply(4, 7, 5)[2] === '4 and 7 and 5 sum to 16.' && sumAndMultiply(4, 7, 5)[3] === 'The product of 4 and 7 and 5 is 140.') {
 
 function sumAndMultiply(a, b, c) {
-  let sum = a + b + c;
-  let mulSum = a*b*c;
-  return([sum,mulSum,a + ' and ' +b+ ' and ' +c+' sum to '+sum +'.','The product of '+ a + ' and ' +b+ ' and ' +c+' is '+mulSum +'.']);
+
+  let mySum = sum(a,sum(b,c)[0])[0];
+  let myMult = multiply(a,multiply(b,c)[0])[0];
+  return([mySum,myMult,a + ' and ' +b+ ' and ' +c+' sum to '+mySum +'.','The product of '+ a + ' and ' +b+ ' and ' +c+' is '+myMult +'.']);
 
 }
 
@@ -84,12 +85,16 @@ Test this function by hand in the console to get it working, and when you think 
 let testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) {
-  let sum =0;
+ debugger;
+ let mySum =  0;
   for (let i = 0; i < sumArr.length; i++) {
-    sum += sumArr[i];
+
+   mySum = sum(mySum,sumArr[i])[0];
+
+    // sum += sumArr[i];
    
   }
-  return ([sum,testArray[0]+','+testArray[1]+','+testArray[2]+' was passed in as an array of numbers, and '+ sum+' is their sum.' ]);
+  return ([mySum,testArray[0]+','+testArray[1]+','+testArray[2]+' was passed in as an array of numbers, and '+ mySum+' is their sum.' ]);
 }
 
 // Here is the test for sumArray(); uncomment it to run it
@@ -110,10 +115,13 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiplyArray(multArr) {
-  let sum =1;
+  let mySum =1;
   for (let i = 0; i < multArr.length; i++) {
-    sum *= multArr[i];}
-    return([sum,'The numbers '+testArray[0]+','+testArray[1]+','+testArray[2]+' have a product of '+ sum+'.' ])
+
+     mySum = multiply(mySum,multArr[i])[0];
+  
+  }
+    return([mySum,'The numbers '+testArray[0]+','+testArray[1]+','+testArray[2]+' have a product of '+ mySum+'.' ])
   }
   console.log(multiplyArray(testArray)) ;
 // Here is the test for multiplyArray(); uncomment it to run it
@@ -141,10 +149,16 @@ Test this function by hand in the console to get it working, and when you think 
 let testDynamicArray = [1, 2, 3, 4, 5]; //eslint-disable-line
 
 function multiplyAnyArray(dynamicArray) {
-  //eslint-disable-line
-}
+  let mySum =1;
+  for (let i = 0; i < dynamicArray.length; i++) {
+    mySum = multiply(mySum,dynamicArray[i])[0];
+  }
+  return([mySum,'The numbers '+dynamicArray[0]+','+dynamicArray[1]+','+dynamicArray[2]+','+dynamicArray[3]+','+dynamicArray[4]+' have a product of '+ mySum+'.' ])
+;}
 
-// Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyAnyArray(testDynamicArray);
+//   if (multiplyAnyArray(testDynamicArray)[0] === 120 && multiplyAnyArray(testDynamicArray)[1] === 'The numbers 1,2,3,4,5 have a product of 120.') {
+
+console.log(multiplyArray(testDynamicArray)); 
+ testMultiplyAnyArray(testDynamicArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. You're done! Submit the link to the repo following the instructions in Canvas.
