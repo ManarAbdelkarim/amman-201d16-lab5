@@ -153,10 +153,9 @@ function multiplyAnyArray(dynamicArray) {
   for (let i = 0; i < dynamicArray.length; i++) {
     mySum = multiply(mySum,dynamicArray[i])[0];
   }
-  return([mySum,'The numbers '+dynamicArray[0]+','+dynamicArray[1]+','+dynamicArray[2]+','+dynamicArray[3]+','+dynamicArray[4]+' have a product of '+ mySum+'.' ])
-;}
+  return([mySum,'The numbers '+dynamicArray[0]+','+dynamicArray[1]+','+dynamicArray[2]+','+dynamicArray[3]+','+dynamicArray[4]+' have a product of '+ mySum+'.' ]);
+}
 
-//   if (multiplyAnyArray(testDynamicArray)[0] === 120 && multiplyAnyArray(testDynamicArray)[1] === 'The numbers 1,2,3,4,5 have a product of 120.') {
 
 console.log(multiplyArray(testDynamicArray)); 
  testMultiplyAnyArray(testDynamicArray);
